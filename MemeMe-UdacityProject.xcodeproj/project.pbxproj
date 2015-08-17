@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DCC5801B7EFE6E00EA262A /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCC57F1B7EFE6E00EA262A /* MemeCollectionViewCell.swift */; };
+		04DE6EA41B81454E0048E654 /* MemeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EA31B81454E0048E654 /* MemeEditViewController.swift */; };
 		04FB8BD51B7B6642002D9A7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BD41B7B6642002D9A7C /* AppDelegate.swift */; };
 		04FB8BD71B7B6642002D9A7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BD61B7B6642002D9A7C /* ViewController.swift */; };
 		04FB8BDA1B7B6642002D9A7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FB8BD81B7B6642002D9A7C /* Main.storyboard */; };
 		04FB8BDC1B7B6642002D9A7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04FB8BDB1B7B6642002D9A7C /* Images.xcassets */; };
 		04FB8BDF1B7B6642002D9A7C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04FB8BDD1B7B6642002D9A7C /* LaunchScreen.xib */; };
 		04FB8BEB1B7B6642002D9A7C /* MemeMe_UdacityProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BEA1B7B6642002D9A7C /* MemeMe_UdacityProjectTests.swift */; };
+		04FB8BF51B7B6C80002D9A7C /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BF41B7B6C80002D9A7C /* MemeTableViewController.swift */; };
+		04FB8BF71B7B6CA0002D9A7C /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BF61B7B6CA0002D9A7C /* MemeCollectionViewController.swift */; };
+		04FB8BF91B7B6E1D002D9A7C /* MemeStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BF81B7B6E1D002D9A7C /* MemeStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04DCC57F1B7EFE6E00EA262A /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		04DE6EA31B81454E0048E654 /* MemeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditViewController.swift; sourceTree = "<group>"; };
 		04FB8BCF1B7B6642002D9A7C /* MemeMe-UdacityProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MemeMe-UdacityProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FB8BD31B7B6642002D9A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04FB8BD41B7B6642002D9A7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +43,9 @@
 		04FB8BE41B7B6642002D9A7C /* MemeMe-UdacityProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MemeMe-UdacityProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FB8BE91B7B6642002D9A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04FB8BEA1B7B6642002D9A7C /* MemeMe_UdacityProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMe_UdacityProjectTests.swift; sourceTree = "<group>"; };
+		04FB8BF41B7B6C80002D9A7C /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
+		04FB8BF61B7B6CA0002D9A7C /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
+		04FB8BF81B7B6E1D002D9A7C /* MemeStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +89,15 @@
 			children = (
 				04FB8BD41B7B6642002D9A7C /* AppDelegate.swift */,
 				04FB8BD61B7B6642002D9A7C /* ViewController.swift */,
+				04FB8BF41B7B6C80002D9A7C /* MemeTableViewController.swift */,
+				04FB8BF61B7B6CA0002D9A7C /* MemeCollectionViewController.swift */,
+				04DE6EA31B81454E0048E654 /* MemeEditViewController.swift */,
 				04FB8BD81B7B6642002D9A7C /* Main.storyboard */,
 				04FB8BDB1B7B6642002D9A7C /* Images.xcassets */,
 				04FB8BDD1B7B6642002D9A7C /* LaunchScreen.xib */,
 				04FB8BD21B7B6642002D9A7C /* Supporting Files */,
+				04FB8BF81B7B6E1D002D9A7C /* MemeStruct.swift */,
+				04DCC57F1B7EFE6E00EA262A /* MemeCollectionViewCell.swift */,
 			);
 			path = "MemeMe-UdacityProject";
 			sourceTree = "<group>";
@@ -212,7 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DE6EA41B81454E0048E654 /* MemeEditViewController.swift in Sources */,
+				04DCC5801B7EFE6E00EA262A /* MemeCollectionViewCell.swift in Sources */,
+				04FB8BF71B7B6CA0002D9A7C /* MemeCollectionViewController.swift in Sources */,
+				04FB8BF51B7B6C80002D9A7C /* MemeTableViewController.swift in Sources */,
 				04FB8BD71B7B6642002D9A7C /* ViewController.swift in Sources */,
+				04FB8BF91B7B6E1D002D9A7C /* MemeStruct.swift in Sources */,
 				04FB8BD51B7B6642002D9A7C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +431,7 @@
 				04FB8BF01B7B6642002D9A7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		04FB8BF11B7B6642002D9A7C /* Build configuration list for PBXNativeTarget "MemeMe-UdacityProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +440,7 @@
 				04FB8BF31B7B6642002D9A7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
