@@ -73,7 +73,7 @@ class MemeCollectionViewController: UICollectionViewController {
         performSegueWithIdentifier("collMemeSegue", sender: self)
     }
 
-
+    // UICollectionViewDelegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         chosenMeme = memes[indexPath.row]
         newOne = false

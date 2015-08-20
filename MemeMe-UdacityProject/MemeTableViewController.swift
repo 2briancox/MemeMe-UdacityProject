@@ -50,6 +50,18 @@ class MemeTableViewController: UITableViewController {
         performSegueWithIdentifier("tableSegueView", sender: self)
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+
+        memes.removeAtIndex(indexPath.row)
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        
+        appDelegate.memes = memes
+        tableView.reloadData()
+    }
+    
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         newOne = true
         performSegueWithIdentifier("memeEditSegue", sender: self)
