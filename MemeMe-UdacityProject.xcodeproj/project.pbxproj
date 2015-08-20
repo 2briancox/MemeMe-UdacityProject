@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		041EA8821B82C5640049C964 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041EA87E1B82C44B0049C964 /* CoreImage.framework */; };
 		041EA8831B82C8AD0049C964 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041EA8801B82C4CB0049C964 /* CoreGraphics.framework */; };
+		042B01821B86906500230113 /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B01811B86906500230113 /* MemeViewController.swift */; };
 		04DE6EA41B81454E0048E654 /* MemeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EA31B81454E0048E654 /* MemeEditViewController.swift */; };
 		04DE6EA61B8240190048E654 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EA51B8240190048E654 /* SavedViewController.swift */; };
 		04FB8BD51B7B6642002D9A7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB8BD41B7B6642002D9A7C /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		041EA87E1B82C44B0049C964 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		041EA8801B82C4CB0049C964 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		042B01811B86906500230113 /* MemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
 		04DE6EA31B81454E0048E654 /* MemeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeEditViewController.swift; sourceTree = "<group>"; };
 		04DE6EA51B8240190048E654 /* SavedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		04FB8BCF1B7B6642002D9A7C /* MemeMe-UdacityProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MemeMe-UdacityProject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 				04FB8BF61B7B6CA0002D9A7C /* MemeCollectionViewController.swift */,
 				04DE6EA31B81454E0048E654 /* MemeEditViewController.swift */,
 				04DE6EA51B8240190048E654 /* SavedViewController.swift */,
+				042B01811B86906500230113 /* MemeViewController.swift */,
 				04FB8BD81B7B6642002D9A7C /* Main.storyboard */,
 				04FB8BDB1B7B6642002D9A7C /* Images.xcassets */,
 				04FB8BDD1B7B6642002D9A7C /* LaunchScreen.xib */,
@@ -235,6 +238,7 @@
 				04DE6EA41B81454E0048E654 /* MemeEditViewController.swift in Sources */,
 				04DE6EA61B8240190048E654 /* SavedViewController.swift in Sources */,
 				04FB8BF71B7B6CA0002D9A7C /* MemeCollectionViewController.swift in Sources */,
+				042B01821B86906500230113 /* MemeViewController.swift in Sources */,
 				04FB8BF51B7B6C80002D9A7C /* MemeTableViewController.swift in Sources */,
 				04FB8BF91B7B6E1D002D9A7C /* MemeStruct.swift in Sources */,
 				04FB8BD51B7B6642002D9A7C /* AppDelegate.swift in Sources */,

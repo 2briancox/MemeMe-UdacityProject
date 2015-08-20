@@ -54,20 +54,20 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
             NSStrokeColorAttributeName : UIColor.blackColor()
         ]
 
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         
-        self.topTextField.textAlignment = NSTextAlignment.Center
-        self.bottomTextField.textAlignment = NSTextAlignment.Center
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.textAlignment = NSTextAlignment.Center
         
     }
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
 
-        self.tabBarController?.tabBar.hidden = true
-        self.tabBarController?.tabBar.frame.size.height = 0.0
-        self.subscribeToKeyboardNotifications()
+        tabBarController?.tabBar.hidden = true
+        tabBarController?.tabBar.frame.size.height = 0.0
+        subscribeToKeyboardNotifications()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,22 +78,22 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func albumButtonPressed(button: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func actionButtonPressed(sender: UIBarButtonItem) {
         if (memeImageView.image != nil) {
             
             meme!.origImage = memeImageView.image
-            meme!.topString = self.topTextField.text as String
-            meme!.bottomString = self.bottomTextField.text as String
+            meme!.topString = topTextField.text as String
+            meme!.bottomString = bottomTextField.text as String
             meme!.generImage = generateMemedImage()
             
             let object = UIApplication.sharedApplication().delegate
@@ -101,13 +101,13 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
             
             if wasNew {
                 appDelegate.memes.append(meme!)
-                self.memeIndex = appDelegate.memes.count - 1
+                memeIndex = appDelegate.memes.count - 1
                 wasNew = false
             } else {
                 appDelegate.memes[memeIndex] = meme!
             }
             
-            self.performSegueWithIdentifier("showImage", sender: self)
+            performSegueWithIdentifier("showImage", sender: self)
             
         } else {
             showAlertWithText(header: "Meme Error", message: "To create a new Meme you must include one image.")
@@ -116,11 +116,11 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let imageChosen = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.memeImageView.image = imageChosen
+            memeImageView.image = imageChosen
             
-            adjustImageLayout(self.memeView.frame.size, imageSize: memeImageView.image!.size)
+            adjustImageLayout(memeView.frame.size, imageSize: memeImageView.image!.size)
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
         } else {
             showAlertWithText(header: "File Type Error", message: "To create a Meme you must use a picture file.")
         }
@@ -128,7 +128,7 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
 
     // Keyboard control
@@ -149,13 +149,13 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y = 0
+            view.frame.origin.y = 0
         }
     }
     
@@ -170,16 +170,16 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     func generateMemedImage() -> UIImage {
         
         adjustImageLayout(memeView.frame.size, imageSize: memeImageView.image!.size)
-        let origX: CGFloat = self.topTextField.frame.origin.x + 1
-        let origY: CGFloat = self.topTextField.frame.origin.y + 1
-        let frameWidth: CGFloat = self.topTextField.frame.width - 2
-        let frameHeight: CGFloat = self.bottomTextField.frame.origin.y + 48 - origY
+        let origX: CGFloat = topTextField.frame.origin.x + 1
+        let origY: CGFloat = topTextField.frame.origin.y + 1
+        let frameWidth: CGFloat = topTextField.frame.width - 2
+        let frameHeight: CGFloat = bottomTextField.frame.origin.y + 48 - origY
 
         var rect = CGRect()
         
@@ -187,8 +187,8 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
         rect.size.width = frameWidth
         rect.size.height = frameHeight
         
-        UIGraphicsBeginImageContext(self.memeView.bounds.size)
-        self.memeView.drawViewHierarchyInRect(self.memeView.bounds, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(memeView.bounds.size)
+        memeView.drawViewHierarchyInRect(memeView.bounds, afterScreenUpdates: true)
         var memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -205,7 +205,7 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showImage" {
             let saveImVC: SavedViewController = segue.destinationViewController as! SavedViewController
-            saveImVC.meme = self.meme!.generImage!
+            saveImVC.meme = meme!.generImage!
         }
     }
     
@@ -215,39 +215,39 @@ class MemeEditViewController: UIViewController, UIImagePickerControllerDelegate,
 
         if (heightRatio > widthRatio) {
             //Picture presents shorter than view height
-            self.topTextField.frame.size.width = memeViewSize.width
-            self.bottomTextField.frame.size.width = memeViewSize.width
+            topTextField.frame.size.width = memeViewSize.width
+            bottomTextField.frame.size.width = memeViewSize.width
             
-            self.topTextField.frame.origin.y = (memeViewSize.height - imageSize.height * widthRatio) / 2.0
+            topTextField.frame.origin.y = (memeViewSize.height - imageSize.height * widthRatio) / 2.0
 
-            self.bottomTextField.frame.origin.y = memeViewSize.height - 50.0 - (memeViewSize.height - imageSize.height * widthRatio) / 2.0
+            bottomTextField.frame.origin.y = memeViewSize.height - 50.0 - (memeViewSize.height - imageSize.height * widthRatio) / 2.0
             
-            self.topTextField.frame.origin.x = 0.0
-            self.bottomTextField.frame.origin.x = 0.0
+            topTextField.frame.origin.x = 0.0
+            bottomTextField.frame.origin.x = 0.0
 
         } else {
             //Picture presents narrower than view width
-            self.topTextField.frame.size.width = imageSize.width * heightRatio
-            self.bottomTextField.frame.size.width = imageSize.width * heightRatio
+            topTextField.frame.size.width = imageSize.width * heightRatio
+            bottomTextField.frame.size.width = imageSize.width * heightRatio
             
-            self.topTextField.frame.origin.y = 0.0
-            self.bottomTextField.frame.origin.y = memeViewSize.height - 50.0
+            topTextField.frame.origin.y = 0.0
+            bottomTextField.frame.origin.y = memeViewSize.height - 50.0
             
-            self.topTextField.frame.origin.x = (memeViewSize.width - imageSize.width * heightRatio) / 2.0
-            self.bottomTextField.frame.origin.x = (memeViewSize.width - imageSize.width * heightRatio) / 2.0
+            topTextField.frame.origin.x = (memeViewSize.width - imageSize.width * heightRatio) / 2.0
+            bottomTextField.frame.origin.x = (memeViewSize.width - imageSize.width * heightRatio) / 2.0
         }
     }
     
     func showAlertWithText (header : String = "Warning", message : String) {
         var alert = UIAlertController(title: header, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        if self.memeImageView.image != nil {
-            adjustImageLayout(self.memeView.frame.size, imageSize: memeImageView.image!.size)
+        if memeImageView.image != nil {
+            adjustImageLayout(memeView.frame.size, imageSize: memeImageView.image!.size)
         }
     }
 

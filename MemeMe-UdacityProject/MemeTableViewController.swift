@@ -47,7 +47,7 @@ class MemeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         chosenMeme = memes[indexPath.row]
         newOne = false
-        performSegueWithIdentifier("memeEditSegue", sender: self)
+        performSegueWithIdentifier("tableSegueView", sender: self)
     }
     
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
@@ -55,14 +55,11 @@ class MemeTableViewController: UITableViewController {
         performSegueWithIdentifier("memeEditSegue", sender: self)
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "memeEditSegue" {
-            if !newOne {
-                let editVC = segue.destinationViewController as! MemeEditViewController
-                editVC.meme = chosenMeme
-                editVC.memeIndex = self.tableView.indexPathForSelectedRow()!.row
-            }
+        if segue.identifier == "tableSegueView" {
+            let editVC = segue.destinationViewController as! MemeViewController
+            editVC.meme = chosenMeme
+            editVC.memeIndex = tableView.indexPathForSelectedRow()!.row
         }
     }
     
@@ -70,10 +67,10 @@ class MemeTableViewController: UITableViewController {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
-        self.tableView.reloadData()
+        tableView.reloadData()
         
-        self.tabBarController?.tabBar.hidden = false
-        self.tabBarController?.tabBar.frame.size.height = 49.0
+        tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.frame.size.height = 49.0
         
     }
 

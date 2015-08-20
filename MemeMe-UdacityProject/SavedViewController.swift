@@ -18,7 +18,7 @@ class SavedViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         imView.image = meme
-        self.addRightNavItemOnView()
+        addRightNavItemOnView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,13 +28,13 @@ class SavedViewController: UIViewController {
     }
 
     func homeButtonPressed(sender: AnyObject) {
-        self.navigationController!.popToRootViewControllerAnimated(true)
+        navigationController!.popToRootViewControllerAnimated(true)
     }
     
     func shareButtonPressed(sender: AnyObject) {
             let nextController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
             
-            self.presentViewController(nextController, animated: true, completion: nil)
+            presentViewController(nextController, animated: true, completion: nil)
     }
     
     func addRightNavItemOnView() {
@@ -52,7 +52,7 @@ class SavedViewController: UIViewController {
         
         var rightBarButtonItemAction: UIBarButtonItem = UIBarButtonItem(customView: buttonAction)
         
-        self.navigationItem.setRightBarButtonItems([rightBarButtonItemAction, rightBarButtonItemHome], animated: true)
+        navigationItem.setRightBarButtonItems([rightBarButtonItemAction, rightBarButtonItemHome], animated: true)
         
     }
 }

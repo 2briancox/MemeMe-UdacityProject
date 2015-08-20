@@ -24,19 +24,19 @@ class MemeCollectionViewController: UICollectionViewController {
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
 
-        self.clearsSelectionOnViewWillAppear = false
+        clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "MemeCollectionCell")
+        collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "MemeCollectionCell")
 
         let space: CGFloat = 3.0
-        let wide = (self.view.frame.size.width - (2 * space)) / 3.0
-        let tall = (self.collectionView!.frame.size.height - (10)) / 4.0
+        let wide = (view.frame.size.width - (2 * space)) / 3.0
+        let tall = (collectionView!.frame.size.height - (10)) / 4.0
         
-        self.flowLayout.minimumInteritemSpacing = space
-        self.flowLayout.itemSize = CGSizeMake(wide, tall)
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.itemSize = CGSizeMake(wide, tall)
         
-        self.flowLayout.minimumLineSpacing = space + 3
+        flowLayout.minimumLineSpacing = space + 3
         
     }
 
@@ -77,16 +77,14 @@ class MemeCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         chosenMeme = memes[indexPath.row]
         newOne = false
-        performSegueWithIdentifier("collMemeSegue", sender: indexPath)
+        performSegueWithIdentifier("collSegueView", sender: indexPath)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "collMemeSegue" {
-            if !newOne {
-                let editVC = segue.destinationViewController as! MemeEditViewController
-                editVC.meme = chosenMeme
-                editVC.memeIndex = (sender as! NSIndexPath).row
-            }
+        if segue.identifier == "collSegueView" {
+            let viewVC = segue.destinationViewController as! MemeViewController
+            viewVC.meme = chosenMeme
+            viewVC.memeIndex = (sender as! NSIndexPath).row
         }
     }
     
@@ -95,9 +93,9 @@ class MemeCollectionViewController: UICollectionViewController {
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
         
-        self.collectionView?.reloadData()
+        collectionView?.reloadData()
         
-        self.tabBarController?.tabBar.hidden = false
-        self.tabBarController?.tabBar.frame.size.height = 49.0
+        tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.frame.size.height = 49.0
     }
 }

@@ -84,6 +84,7 @@
                     <connections>
                         <outlet property="flowLayout" destination="Jnh-NW-6BB" id="AM0-5X-Bdl"/>
                         <segue destination="HiD-u9-A9K" kind="show" identifier="collMemeSegue" id="LHF-s6-3kv"/>
+                        <segue destination="j41-uq-BKk" kind="show" identifier="collSegueView" id="NDg-GQ-lxK"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHU-h7-aRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,6 +153,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="HiD-u9-A9K" kind="show" identifier="memeEditSegue" id="2V0-8N-mcu"/>
+                        <segue destination="j41-uq-BKk" kind="show" identifier="tableSegueView" id="vcG-Sn-UW6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLB-ZV-aPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,7 +278,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCw-1P-xE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="-16"/>
+            <point key="canvasLocation" x="3712" y="-265"/>
+        </scene>
+        <!--ViewMeme-->
+        <scene sceneID="mKL-oC-2ro">
+            <objects>
+                <viewController id="j41-uq-BKk" userLabel="ViewMeme" customClass="MemeViewController" customModule="MemeMe_UdacityProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="spa-hA-9Iy"/>
+                        <viewControllerLayoutGuide type="bottom" id="dCb-57-TyK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kOa-Ms-pIH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rkk-7d-Neq">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rkk-7d-Neq" secondAttribute="trailing" id="GVv-eW-cez"/>
+                            <constraint firstItem="rkk-7d-Neq" firstAttribute="bottom" secondItem="dCb-57-TyK" secondAttribute="top" id="TQT-Uf-QNb"/>
+                            <constraint firstItem="rkk-7d-Neq" firstAttribute="top" secondItem="spa-hA-9Iy" secondAttribute="bottom" id="d9E-n2-C9v"/>
+                            <constraint firstItem="rkk-7d-Neq" firstAttribute="leading" secondItem="kOa-Ms-pIH" secondAttribute="leading" id="uOi-iF-iy3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="View" id="cWq-fU-Ipq"/>
+                    <connections>
+                        <outlet property="imView" destination="rkk-7d-Neq" id="Isq-8a-wcj"/>
+                        <segue destination="HiD-u9-A9K" kind="show" identifier="viewToEditSegue" id="Ag5-BA-3L8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fd-P1-CSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2860" y="621"/>
         </scene>
         <!--View-->
         <scene sceneID="1YL-ZX-hS2">
@@ -309,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlk-LT-x8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3434" y="-16"/>
+            <point key="canvasLocation" x="4373" y="-265"/>
         </scene>
     </scenes>
     <resources>
@@ -318,6 +354,7 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LHF-s6-3kv"/>
+        <segue reference="vcG-Sn-UW6"/>
+        <segue reference="Ag5-BA-3L8"/>
     </inferredMetricsTieBreakers>
 </document>
